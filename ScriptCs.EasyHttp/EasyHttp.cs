@@ -28,5 +28,20 @@ namespace ScriptCs.EasyHttp
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             return httpClient.PostAsync(url, bodyContent).Result;
         }
+
+        public HttpResponseMessage PutJson<T>(string url, T objectToPut) where T : class
+        {
+            var httpClient = new HttpClient();
+            var bodyContent = new StringContent(JsonConvert.SerializeObject(objectToPut), Encoding.UTF8, "application/json");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            return httpClient.PutAsync(url, bodyContent).Result;
+        }
+
+        public HttpResponseMessage Delete(string url)
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            return httpClient.DeleteAsync(url).Result;
+        }
     }
 }
