@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>ScriptCs.EasyHttp</id>
+        <version>0.2.0</version>
+        <title>ScriptCs.EasyHttp</title>
+        <authors>@martinobrink</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Using this script pack you can write very simple scripts similar to this:
+
+public class Notification
+{
+ public string Message {get; set;}
+ public string SenderName {get; set;}
+ [JsonIgnore]
+ public string PropertyToIgnore {get; set;}
+}
+var notificationToSend = new Notification { Message = "Merry christmas!", SenderName = "Santa"};
+var http = Require&lt;EasyHttp&gt;();
+var result = http.PostJson("http://your.site.com/api/notification", notificationToSend);
+Console.WriteLine("Response status code: " + result.StatusCode);</description>
+        <summary>A ScriptCs script pack which enables very declarative scripts for performing http requests (including json serialization of objects using Json.NET)</summary>
+        <copyright>@martinobrink</copyright>
+        <language />
+        <dependencies>
+            <group targetFramework=".NETFramework4.5">
+                <dependency id="Newtonsoft.Json" version="5.0.8" />
+                <dependency id="Microsoft.Net.Http" version="2.2.18" />
+                <dependency id="ScriptCs.Contracts" version="0.8.1" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Debug\ScriptCs.EasyHttp.dll" target="lib\net45\ScriptCs.EasyHttp.dll" />
+    </files>
+</package>
