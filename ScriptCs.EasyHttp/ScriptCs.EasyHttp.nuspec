@@ -2,23 +2,28 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>ScriptCs.EasyHttp</id>
-        <version>0.2.0</version>
+        <version>0.3.2</version>
         <title>ScriptCs.EasyHttp</title>
         <authors>@martinobrink</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Using this script pack you can write very simple scripts similar to this:
 
-public class Notification
-{
- public string Message {get; set;}
- public string SenderName {get; set;}
- [JsonIgnore]
- public string PropertyToIgnore {get; set;}
-}
-var notificationToSend = new Notification { Message = "Merry christmas!", SenderName = "Santa"};
-var http = Require&lt;EasyHttp&gt;();
-var result = http.PostJson("http://your.site.com/api/notification", notificationToSend);
-Console.WriteLine("Response status code: " + result.StatusCode);</description>
+
+	public class Notification
+	{
+		public string Message {get; set;}
+		public string SenderName {get; set;}
+	}
+	var notificationToSend = new Notification { Message = "Merry christmas!", SenderName = "Santa"};
+	var http = Require<EasyHttp>();
+	var result = http.PostJson("http://your.site.com/api/notification", notificationToSend);
+	Console.WriteLine("Response status code: " + result.StatusCode);
+
+
+The script pack also has the Json.NET namespace available so you can make use of different Json.NET serialization possibilities (e.g. [JsonIgnore]) to suit your needs. 
+
+
+Source code can be found at https://github.com/martinobrink/ScriptCs.EasyHttp.</description>
         <summary>A ScriptCs script pack which enables very declarative scripts for performing http requests (including json serialization of objects using Json.NET)</summary>
         <copyright>@martinobrink</copyright>
         <language />
