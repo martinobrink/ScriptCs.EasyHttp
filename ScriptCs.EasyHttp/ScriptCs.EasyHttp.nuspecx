@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<package xmlns="http://nugetext.org/schemas/nuspec-extensions/1.0.0"
+    <richDescription format="markdown">
+		Using this script pack you can write very simple scripts similar to this:
+```
+public class Notification
+{
+	public string Message {get; set;}
+	public string SenderName {get; set;}
+}
+var notificationToSend = new Notification { Message = "Merry christmas!", SenderName = "Santa"};
+var http = Require<EasyHttp>();
+var result = http.PostJson("http://your.site.com/api/notification", notificationToSend);
+Console.WriteLine("Response status code: " + result.StatusCode);
+```
+
+The script pack also has the Json.NET namespace available so you can make use of different Json.NET serialization possibilities (e.g. [JsonIgnore]) to suit your needs. 
+	</richDescription> 
+</package> 
